@@ -24,6 +24,17 @@ var app = {
             }
         })
 
+        $('.btn-new').on('click', function (e) {
+            var form = $('form[data-action="new-contact"]')
+            $('#main-screen').hide()
+            $('#add-screen').show()
+
+            $('#add-screen').on('click', '.btn-back', function () {
+                $('#add-screen').hide()
+                $('#main-screen').show()
+            })
+        })
+
         $('.list-contacts').on('click', '.edit-contact', function (e) {
             var element = $(this)
             var form = $('form[data-action="edit-contact"]')
@@ -73,7 +84,7 @@ var app = {
                     name: form.find('input[name="name"]').val(),
                     phone: form.find('input[name="phone"]').val(),
                 }
-                controller.new(form, data)
+                controller.new($('#add-screen'), $('#main-screen'),form, data)
                 break;
             case 'edit-contact':
                 var data = {

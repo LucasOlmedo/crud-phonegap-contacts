@@ -9,6 +9,12 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.crud.app"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "com.crud.app"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.crud.app"
     }
   },
   "dependent_plugins": {}

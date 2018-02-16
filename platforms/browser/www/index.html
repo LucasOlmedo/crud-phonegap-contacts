@@ -4,29 +4,37 @@
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <script defer type="text/javascript" src="js/fontawesome-all.min.js"></script>
         <title>Hello World</title>
     </head>
+    <style>
+        .btn-fab{
+            position:fixed;
+            width:60px;
+            height:60px;
+            bottom:5%;
+            right:10%;
+            color:#FFF;
+            border-radius:50px;
+            text-align:center;
+            box-shadow: 2px 2px 3px #999;
+        }
+    </style>
     <body>
         <div class="container" id="main-screen">
             <br>
             <div class="row">
                 <div class="col-md-12">
-                    <form action="" method="post" data-action="new-contact">
-                        <div class="form-group">
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Contact name">
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone number">
-                        </div>
-                        <button type="submit" class="btn btn-block btn-primary">&#10004;</button>
-                    </form>
+                    <div class="page-header text-center">
+                        <h4>Contact List</h4>
+                    </div>
                 </div>
             </div>
             <hr>
-            <br>
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-responsive list-contacts">
@@ -41,6 +49,35 @@
                             </tbody>
                         </table>
                     </div>
+                    <button class="btn btn-primary btn-lg btn-fab btn-new">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="add-screen" style="display:none;">
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn btn-success btn-block btn-back">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="" method="post" data-action="new-contact">
+                        <div class="form-group">
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Contact name">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone number">
+                        </div>
+                        <button type="submit" class="btn btn-block btn-primary">
+                            <i class="fas fa-check"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -48,7 +85,9 @@
             <br>
             <div class="row">
                 <div class="col-md-12">
-                    <button class="btn btn-success btn-block btn-back" style="transform: rotate(180deg);">&#10140;</button>
+                    <button class="btn btn-success btn-block btn-back">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
                 </div>
             </div>
             <br>
@@ -62,7 +101,9 @@
                         <div class="form-group">
                             <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone number">
                         </div>
-                        <button type="submit" class="btn btn-block btn-primary">&#10004;</button>
+                        <button type="submit" class="btn btn-block btn-primary">
+                            <i class="fas fa-check"></i>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -71,18 +112,26 @@
             <br>
             <div class="row">
                 <div class="col-md-12">
-                    <button class="btn btn-success btn-block btn-back" style="transform: rotate(180deg);">&#10140;</button>
+                    <button class="btn btn-success btn-block btn-back">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
                 </div>
             </div>
             <div class="row">
                 <div id="contact-info">
                     <div class="col-md-12">
                         <br>
-                        <label style="font-size:26px;">&#9786;</label>
+                        <label style="font-size:26px;">
+                            <i class="fas fa-user"></i>
+                        </label>
+                        &nbsp;
                         <span class="name"></span>
                     </div>
                     <div class="col-md-12">
-                        <label style="font-size:26px;">&phone;</label>
+                        <label style="font-size:26px;">
+                            <i class="fas fa-phone"></i>    
+                        </label>
+                        &nbsp;
                         <span class="phone"></span>
                     </div>
                 </div>
