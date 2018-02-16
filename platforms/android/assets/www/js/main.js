@@ -17,10 +17,12 @@ function errorCreateDB(error) {
 
 var controller = {
 
-    new: function (form, data) {
+    new: function (element1, element2, form, data) {
 
         function newContactSuccess() {
             form.trigger('reset')
+            element1.hide()
+            element2.show()
             controller.refreshView()
         }
 
@@ -107,11 +109,17 @@ var controller = {
                 content += '<tr data-row="'+ contact.id +'">'+ 
                                 '<td>'+ contact.name +'</td>' +
                                 '<td>'+
-                                    '<button class="btn btn-info view-contact">&#9788;</button>' +
+                                    '<button class="btn btn-info view-contact">'+
+                                        '<i class="fas fa-eye"></i>'+
+                                    '</button>' +
                                     '&nbsp;' +
-                                    '<button class="btn btn-warning edit-contact">&#9999;</button>' +
+                                    '<button class="btn btn-warning edit-contact">'+
+                                        '<i class="fas fa-edit"></i>' +
+                                    '</button>' +
                                     '&nbsp;' +
-                                    '<button class="btn btn-danger remove-contact">&#10005;</button>' +
+                                    '<button class="btn btn-danger remove-contact">' +
+                                        '<i class="fas fa-times"></i>' +
+                                    '</button>' +
                                 '</td>' +
                             '</tr>'
             }
