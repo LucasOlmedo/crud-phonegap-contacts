@@ -22,32 +22,32 @@
             border-radius:50px;
             text-align:center;
             box-shadow: 2px 2px 3px #999;
+            z-index: 9999;
+        }
+        .contact-header-info button{
+            text-decoration: none;
+            color: black;
+        }
+        .contact-header-info button:focus{
+            text-decoration: none;
+            color: black;
         }
     </style>
     <body>
         <div class="container" id="main-screen">
-            <br>
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header text-center">
+                        <br>
                         <h4>Contact List</h4>
+                        <hr>
                     </div>
                 </div>
             </div>
-            <hr>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="table-responsive list-contacts">
-                        <table class="table table-striped">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Options</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
+                    <div class="list-contacts">
+                        <div class="list-group list-group-flush"></div> 
                     </div>
                     <button class="btn btn-primary btn-lg btn-fab btn-new">
                         <i class="fas fa-plus"></i>
@@ -110,29 +110,22 @@
         </div>
         <div class="container" id="view-screen" style="display:none">
             <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <button class="btn btn-success btn-block btn-back">
-                        <i class="fas fa-arrow-left"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="row">
-                <div id="contact-info">
+            <div id="contact-info">
+                <div class="row contact-header-info">
                     <div class="col-md-12">
-                        <br>
-                        <label style="font-size:26px;">
-                            <i class="fas fa-user"></i>
-                        </label>
-                        &nbsp;
-                        <span class="name"></span>
+                        <button class="btn btn-link btn-lg btn-back float-left">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <h5><span class="contact-name"></span></h5>
+                        <button class="btn btn-link btn-lg btn-options float-right">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
                     </div>
+                </div>
+                <hr>
+                <div class="row"> 
                     <div class="col-md-12">
-                        <label style="font-size:26px;">
-                            <i class="fas fa-phone"></i>    
-                        </label>
-                        &nbsp;
-                        <span class="phone"></span>
+                        <img src="" class="contact-photo rounded-circle d-block mx-auto" alt="" width="150">
                     </div>
                 </div>
             </div>

@@ -57,15 +57,18 @@ var app = {
 
         $('.list-contacts').on('click', '.view-contact', function (e) {
             var element = $(this)
-            $('#main-screen').hide()
-            $('#view-screen').show()
-            
             app.viewContact(element)
 
-            $('#view-screen').on('click', '.btn-back', function () {
-                $('#view-screen').hide()
-                $('#main-screen').show()
-            })
+            setTimeout(function(){
+                $('#main-screen').hide()
+                $('#view-screen').show()
+
+                $('#view-screen').on('click', '.btn-back', function () {
+                    $('#view-screen').hide()
+                    $('#main-screen').show()
+                })
+            }, 200);
+            
         })
 
         controller.all()
@@ -106,8 +109,8 @@ var app = {
     },
 
     viewContact: function (element) {
-        var row = element.closest('tr').data('row')
-        controller.view(row)
+        var contactData = element.find('.contact-data')
+        controller.view(contactData)
     },
 
     renderEditContact: function (element, form) {
