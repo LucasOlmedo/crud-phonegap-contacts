@@ -6,7 +6,6 @@ var app = {
 
     onDeviceReady: function() {
         this.receivedEvent('deviceready')
-        db.transaction(createDB, errorCreateDB, successCreateDB)
 
         $('form[data-action="new-contact"]').on('submit', function (e) {
             var $this = $(this)
@@ -105,8 +104,8 @@ var app = {
     },
 
     removeContact: function (element) {
-        var row = element.closest('tr').data('row')
-        controller.remove(row)
+        // var row = element.closest('tr').data('row')
+        // controller.remove(row)
     },
 
     viewContact: function (element) {
@@ -115,25 +114,25 @@ var app = {
     },
 
     renderEditContact: function (element, form) {
-        var row = element.closest('tr').data('row')
+        // var row = element.closest('tr').data('row')
         
-        function getByIdError(error) {
-            console.log('Error: '+ error)
-        }
+        // function getByIdError(error) {
+        //     console.log('Error: '+ error)
+        // }
 
-        function getByIdSuccess(db, result) {
-            var contact = result.rows.item(0)
+        // function getByIdSuccess(db, result) {
+        //     var contact = result.rows.item(0)
 
-            form.find('input[name="id"]').val(contact.id)
-            form.find('input[name="name"]').val(contact.name)
-            form.find('input[name="phone"]').val(contact.phone)
-        }
+        //     form.find('input[name="id"]').val(contact.id)
+        //     form.find('input[name="name"]').val(contact.name)
+        //     form.find('input[name="phone"]').val(contact.phone)
+        // }
 
-        function getById(db) {
-            db.executeSql('SELECT * FROM contacts WHERE id = ' + row, [], getByIdSuccess, getByIdError)
-        }
+        // function getById(db) {
+        //     db.executeSql('SELECT * FROM contacts WHERE id = ' + row, [], getByIdSuccess, getByIdError)
+        // }
 
-        db.transaction(getById)
+        // db.transaction(getById)
     }
 };
 

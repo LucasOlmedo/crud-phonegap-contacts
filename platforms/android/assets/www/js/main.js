@@ -1,59 +1,42 @@
-var db = window.openDatabase(
-    'DB',
-    '1.0',
-    'contacts database',
-    2 * 1024 * 1024
-)
-
-function createDB(db) {
-    db.executeSql('CREATE TABLE IF NOT EXISTS contacts (id INTEGER PRIMARY KEY, name VARCHAR(500), phone NUM(11) )')
-}
-
-function successCreateDB() {}
-
-function errorCreateDB(error) {
-    console.log('DB Error: ' + error)
-}
-
 var controller = {
 
     new: function (element1, element2, form, data) {
 
-        function newContactSuccess() {
-            form.trigger('reset')
-            element1.hide()
-            element2.show()
-            controller.refreshView()
-        }
+        // function newContactSuccess() {
+        //     form.trigger('reset')
+        //     element1.hide()
+        //     element2.show()
+        //     controller.refreshView()
+        // }
 
-        function newContactFail(error) {
-            console.log('Insert error: '+ error)
-        }
+        // function newContactFail(error) {
+        //     console.log('Insert error: '+ error)
+        // }
 
-        function newContact(db){
-            db.executeSql('INSERT INTO contacts (name, phone) VALUES ("'+ data.name +'", "'+ data.phone +'")')
-        }
+        // function newContact(db){
+        //     db.executeSql('INSERT INTO contacts (name, phone) VALUES ("'+ data.name +'", "'+ data.phone +'")')
+        // }
 
-        db.transaction(newContact, newContactFail, newContactSuccess)
+        // db.transaction(newContact, newContactFail, newContactSuccess)
     },
 
     edit: function (element1, element2, data) {
 
-        function updateContactSuccess() {
-            element1.hide()
-            element2.show()
-            controller.refreshView()
-        }
+        // function updateContactSuccess() {
+        //     element1.hide()
+        //     element2.show()
+        //     controller.refreshView()
+        // }
 
-        function updateContactFail(error) {
-            console.log('Update error: '+ error)
-        }
+        // function updateContactFail(error) {
+        //     console.log('Update error: '+ error)
+        // }
 
-        function updateContact(db){
-            db.executeSql('UPDATE contacts SET name = "' + data.name + '", phone = "' + data.phone + '" WHERE id = '+ data.id)
-        }
+        // function updateContact(db){
+        //     db.executeSql('UPDATE contacts SET name = "' + data.name + '", phone = "' + data.phone + '" WHERE id = '+ data.id)
+        // }
 
-        db.transaction(updateContact, updateContactFail, updateContactSuccess)
+        // db.transaction(updateContact, updateContactFail, updateContactSuccess)
     },
 
     view: function(contact){
@@ -129,19 +112,19 @@ var controller = {
     },
 
     remove: function (id) {
-        function removeSuccess() {
-            controller.refreshView()
-        }
+        // function removeSuccess() {
+        //     controller.refreshView()
+        // }
 
-        function removeError(error) {
-            console.log('Delete error: '+ error)
-        }
+        // function removeError(error) {
+        //     console.log('Delete error: '+ error)
+        // }
 
-        function removeContact(db) {
-            db.executeSql('DELETE FROM contacts WHERE id = ' + id)
-        }
+        // function removeContact(db) {
+        //     db.executeSql('DELETE FROM contacts WHERE id = ' + id)
+        // }
 
-        db.transaction(removeContact, removeError, removeSuccess)
+        // db.transaction(removeContact, removeError, removeSuccess)
     },
 
     all: function () {
