@@ -59,16 +59,13 @@ var app = {
             var element = $(this)
             app.viewContact(element)
 
-            setTimeout(function(){
-                $('#main-screen').hide()
-                $('#view-screen').show()
+            $('#main-screen').hide()
+            $('#view-screen').show()
 
-                $('#view-screen').on('click', '.btn-back', function () {
-                    $('#view-screen').hide()
-                    $('#main-screen').show()
-                })
-            }, 200);
-            
+            $('#view-screen').on('click', '.btn-back', function () {
+                $('#view-screen').hide()
+                $('#main-screen').show()
+            })
         })
 
         controller.all()

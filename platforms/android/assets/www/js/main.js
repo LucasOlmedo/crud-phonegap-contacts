@@ -59,13 +59,14 @@ var controller = {
     view: function(contact){
 
         var name = contact.data('name'),
-            phones = JSON.stringify(contact.data('phones')),
-            emails = JSON.stringify(contact.data('emails')),
-            addresses = JSON.stringify(contact.data('addresses')),
+            phones = JSON.parse(JSON.stringify(contact.data('phones'))),
+            emails = JSON.parse(JSON.stringify(contact.data('emails'))),
+            addresses = JSON.parse(JSON.stringify(contact.data('addresses'))),
             photos = JSON.parse(JSON.stringify(contact.data('photos'))),
             contactInfo = $('#contact-info')
-        
-        if(name){
+
+        if(name != null){
+            contactInfo.find('.contact-name').html('')
             contactInfo.find('.contact-name').html(name)
         }
 
@@ -73,6 +74,57 @@ var controller = {
             contactInfo.find('.contact-photo').attr('src', 'img/contact-default.png')
         }else{
             contactInfo.find('.contact-photo').attr('src', photos[0].value)
+        }
+
+        if (phones != null) {
+            var phonesContent = '<small><strong>Phones</strong></small>'+
+                                    '<hr><ul class="list-unstyled">'
+
+            for (var index = 0; index < phones.length; index++) {
+                var phone = phones[index]
+                phonesContent += '<li>'+
+                                    '<i class="fas fa-phone text-success"></i> &nbsp;&nbsp;' + 
+                                    phone.value + 
+                                '</li>'
+            }
+            phonesContent += '</ul>'
+            contactInfo.find('.contact-phones').html(phonesContent)
+        }else{
+            contactInfo.find('.contact-phones').html('')
+        }
+
+        if (emails != null) {
+            var emailsContent = '<small><strong>Emails</strong></small>'+
+                                    '<hr><ul class="list-unstyled">'
+
+            for (var index = 0; index < emails.length; index++) {
+                var email = emails[index]
+                emailsContent += '<li>'+
+                                    '<i class="fas fa-envelope text-muted"></i> &nbsp;&nbsp;' + 
+                                    email.value +
+                                '</li>'
+            }
+            emailsContent += '</ul>'
+            contactInfo.find('.contact-emails').html(emailsContent)
+        }else{
+            contactInfo.find('.contact-emails').html('')
+        }
+
+        if (addresses != null) {
+            var addressesContent = '<small><strong>Addresses</strong></small>'+
+                                    '<hr><ul class="list-unstyled">'
+
+            for (var index = 0; index < addresses.length; index++) {
+                var address = addresses[index]
+                addressesContent += '<li>'+
+                                    '<i class="fas fa-map-marker text-primary"></i> &nbsp;&nbsp;' + 
+                                    address.formatted + 
+                                '</li>'
+            }
+            addressesContent += '</ul>'
+            contactInfo.find('.contact-addresses').html(addressesContent)
+        }else{
+            contactInfo.find('.contact-addresses').html('')
         }
     },
 
@@ -155,6 +207,7 @@ var controller = {
                     content += "<button class='btn btn-light list-group-item view-contact' data-row='"+ contact.id +"'>" + 
                                     "<div class='contact-data' data-name='" + contact.name.formatted + 
                                         "' data-phones='"+ JSON.stringify(contact.phoneNumbers) + 
+                                        "' data-emails='"+ JSON.stringify(contact.emails) + 
                                         "' data-addresses='"+ JSON.stringify(contact.addresses) +
                                         "' data-photos='"+ JSON.stringify(contact.photos) +"'></div>" +
                                     '<div class="float-left">' +
