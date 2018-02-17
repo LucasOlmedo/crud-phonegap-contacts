@@ -68,6 +68,10 @@ var app = {
             })
         })
 
+        $('.btn-options').on('click', function(){
+            $('.contact-options').toggle()
+        })
+
         controller.all()
     },
 
